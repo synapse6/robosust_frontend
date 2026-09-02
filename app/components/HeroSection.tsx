@@ -3,12 +3,19 @@ import { HeroBackground } from "./HeroBackground";
 
 type HeroSectionProps = {
   image?: string;
+  primaryAction?: {
+    href: string;
+    label: string;
+  };
 };
 
 const defaultHeroImage =
   "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=2200&q=85";
 
-export function HeroSection({ image = defaultHeroImage }: HeroSectionProps) {
+export function HeroSection({
+  image = defaultHeroImage,
+  primaryAction = { href: "#projects", label: "Register for AGP" },
+}: HeroSectionProps) {
   return (
     <section className="hero relative grid min-h-[780px] items-end overflow-hidden">
       <HeroBackground image={image} />
@@ -29,10 +36,10 @@ export function HeroSection({ image = defaultHeroImage }: HeroSectionProps) {
         </div>
         <div className="reveal mt-8 flex flex-wrap gap-3">
           <a
-            href="#projects"
+            href={primaryAction.href}
             className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3.5 text-[13px] font-semibold text-[#05070c] transition hover:-translate-y-0.5"
           >
-            Explore projects <ArrowUpRight size={16} />
+            {primaryAction.label} <ArrowUpRight size={16} />
           </a>
           <a
             href="#about"
