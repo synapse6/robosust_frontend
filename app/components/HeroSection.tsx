@@ -10,17 +10,17 @@ type HeroSectionProps = {
 };
 
 const defaultHeroImage =
-  "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=2200&q=85";
+  "https://images.unsplash.com/photo-1781330189305-d92d518dc28d";
 
 export function HeroSection({
   image = defaultHeroImage,
   primaryAction = { href: "#projects", label: "Register for AGP" },
 }: HeroSectionProps) {
   return (
-    <section className="hero relative grid min-h-[780px] items-end overflow-hidden">
+    <section className="hero relative grid min-h-[780px] items-center overflow-hidden">
       <HeroBackground image={image} />
       <div className="grid-pattern absolute inset-0 opacity-35" />
-      <div className="container-shell relative max-w-[930px] pb-[100px] pt-10 md:pb-[100px]">
+      <div className="container-shell relative max-w-[930px] py-10">
         <div className="reveal mb-5 text-[12px] uppercase tracking-[0.22em] text-[#aeb7c7]">
           <span className="mr-3 inline-block h-px w-7 bg-[#ff3b46] align-middle" />
           Robotics Laboratory based in SUST
