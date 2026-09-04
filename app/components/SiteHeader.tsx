@@ -1,12 +1,14 @@
 "use client";
 
-import { Facebook, Github, Instagram, Menu } from "lucide-react";
+import { Facebook, Github, Instagram, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "Home", href: "#top" },
-  { label: "Event", href: "#events" },
-  { label: "Projects", href: "#projects" },
-  { label: "Blog", href: "#blog" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Events", href: "/events" },
+  { label: "Executive", href: "/executive-members" },
+  { label: "Projects", href: "/projects" },
   { label: "Forum", href: "#forum" },
 ];
 const socials = [
@@ -16,6 +18,19 @@ const socials = [
 ];
 
 export function SiteHeader() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isMenuOpen]);
+
   return (
     <header className="fixed left-0 right-0 top-0 z-20 h-[76px] border-b border-white/10 bg-[#05070c]/70 backdrop-blur-xl">
       <div className="container-shell grid h-full grid-cols-[1fr_auto_1fr] items-center px-7 md:px-0">
@@ -32,7 +47,7 @@ export function SiteHeader() {
           ))}
         </div>
         <a
-          href="#top"
+          href="/"
           className="justify-self-start text-[18px] font-bold tracking-[0.08em] md:justify-self-center"
         >
           ROBO<span className="text-[#ff3b46]">SUST</span>
@@ -51,13 +66,36 @@ export function SiteHeader() {
           ))}
         </nav>
         <button
-          aria-label="Menu"
-          onClick={() => alert("Mobile navigation coming soon.")}
-          className="menu ml-auto grid h-9 w-9 place-items-center rounded-full border border-white/10 text-[#dce2ec] md:hidden"
+          type="button"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          className="menu ml-auto grid h-9 w-9 place-items-center rounded-full border border-white/10 text-[#dce2ec] transition hover:border-[#3d7cff]/60 md:hidden"
         >
-          <Menu size={18} />
+          {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
       </div>
+      {isMenuOpen && (
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          className="border-t border-white/10 bg-[#080b12]/95 px-7 py-5 shadow-2xl shadow-black/30 backdrop-blur-xl md:hidden"
+        >
+          <div className="container-shell flex flex-col gap-1">
+            {navItems.map(({ label, href }) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setIsMenuOpen(false)}
+                className="border-b border-white/10 py-3 text-sm text-[#dce2ec] transition hover:text-white"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

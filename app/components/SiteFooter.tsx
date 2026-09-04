@@ -22,10 +22,11 @@ export function SiteFooter() {
             </p>
           </div>
           <div className="flex flex-wrap gap-6 text-[13px] text-[#b9c1ce]">
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#events">Events</a>
-            <a href="#blog">Blog</a>
+            <a href="/about">About</a>
+            <a href="/executive-members">Executive</a>
+            <a href="/projects">Projects</a>
+            <a href="/events">Events</a>
+            <a href="/#blog">Blog</a>
             <a href="#">Forum</a>
           </div>
         </div>

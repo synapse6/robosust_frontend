@@ -7,6 +7,7 @@ A modern Next.js landing page for RoboSUST, showcasing the club’s workshops, p
 This project is built with Next.js and Tailwind CSS to create a polished, responsive, and visually rich frontend for the RoboSUST community.
 
 ### Included sections
+
 - Hero section
 - About section
 - Events section
@@ -62,7 +63,7 @@ npm install
 Development server:
 
 ```bash
-dnpm run dev
+npm run dev
 ```
 
 Then open:

@@ -1,7 +1,7 @@
 import { ProjectCard } from "./ProjectCard";
 import { SectionHeading } from "./SectionHeading";
 
-const projects = [
+export const projects = [
   {
     category: "Autonomous Systems",
     title: "Vision Rover",

@@ -20,9 +20,9 @@ export default function HomePage() {
           description="Master fundamental machine learning concepts, algorithms, and
               real-world applications in this intensive 8-day hands-on workshop
               hosted by RoboSUST"
-          date="12-12-4"
+          date="12 Dec 2026"
           venue="SUST Campus"
-          category="pen to all"
+          category="Open to all"
         />
         <AboutSection />
         <ProjectsSection />
