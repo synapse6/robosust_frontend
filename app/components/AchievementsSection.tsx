@@ -1,13 +1,37 @@
+import { AchievementSlideshow } from "./AchievementSlideshow";
 import { SectionHeading } from "./SectionHeading";
 
+const achievementSlides = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?auto=format&fit=crop&w=1600&q=85",
+    imageAlt: "Students presenting a robotics project at a competition",
+    label: "Featured milestone",
+    title: "From prototype to podium.",
+    description:
+      "At RoboSust, every competition result begins with disciplined experimentation. Our teams move from sketches and simulations to tested mechanisms, refining each subsystem until the whole robot performs with confidence. This milestone represents the moment when a promising prototype becomes a dependable competitor: faster decisions, cleaner engineering, stronger collaboration, and a clear path toward the next challenge ahead on the course.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1600&q=85",
+    imageAlt: "Robot prototype being tested in a research workspace",
+    label: "Research in motion",
+    title: "Intelligence in the field.",
+    description:
+      "Robotics research matters when it leaves the workbench and meets a real environment. Our navigation systems combine sensing, mapping, planning, and control to help machines respond intelligently to uncertainty. Each field test reveals another question, and each question guides a sharper design. Progress is measured not only by performance, but by repeatability, resilience, and responsible deployment in the world.",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1600&q=85",
+    imageAlt: "Engineering team collaborating around a robotic machine",
+    label: "People behind progress",
+    title: "Built by shared momentum.",
+    description:
+      "Strong teams turn difficult problems into shared momentum. Across design reviews, late-night builds, and demanding trials, RoboSust members learn to communicate clearly, challenge assumptions, and trust careful measurement. The result is more than a functioning machine: it is a culture of curiosity and accountability that prepares young engineers to create technology people can rely on every single day with confidence.",
+  },
+];
+
 export function AchievementsSection() {
-  const metrics = [
-    [
-      "12+",
-      "Competition and research projects across autonomous robotics, embedded systems and intelligent machines.",
-    ],
-    ["24/7", "A builder mindset: test, break, learn, iterate and ship."],
-  ];
   return (
     <section
       id="achievements"
@@ -22,52 +46,10 @@ export function AchievementsSection() {
       <div className="container-shell">
         <SectionHeading
           eyebrow="03 / Achievements"
-          title={
-            <>
-              Proof of
-              <br />
-              progress.
-            </>
-          }
-          description="A modular showcase for competition results, milestones and moments worth remembering."
+          title={<>Proof of progress.</>}
+          description=""
         />
-        <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
-          <article
-            className="reveal flex min-h-[390px] flex-col justify-end rounded-[22px] border border-white/10 bg-cover bg-center p-[36px]"
-            style={{
-              backgroundImage:
-                "linear-gradient(0deg,#090c13 5%,rgba(9,12,19,.15)), url('https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?auto=format&fit=crop&w=1600&q=85')",
-            }}
-          >
-            <div className="text-[10px] uppercase tracking-[0.14em] text-[#7f899b]">
-              Featured milestone
-            </div>
-            <h3 className="mt-3 text-[42px] font-semibold leading-[1]">
-              From prototype
-              <br />
-              to podium.
-            </h3>
-            <p className="mt-4 max-w-[440px] text-[14px] leading-7 text-[#98a1b3]">
-              Replace this with the laboratory&apos;s latest major competition
-              result or research milestone.
-            </p>
-          </article>
-          <div className="grid gap-4">
-            {metrics.map(([value, text]) => (
-              <div
-                key={value}
-                className="reveal rounded-[22px] border border-white/10 bg-[#0d111a] p-[26px]"
-              >
-                <div className="text-[46px] font-bold tracking-[-0.05em]">
-                  {value}
-                </div>
-                <p className="mt-3 text-[13px] leading-6 text-[#98a1b3]">
-                  {text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <AchievementSlideshow slides={achievementSlides} />
       </div>
     </section>
   );
